@@ -14,6 +14,13 @@ export class AppComponent {
   year: number = this.currentTime.getFullYear();
   selectedTask: Task = null;
 
+  masterTaskList: Task[] = [
+    new Task('Finish weekend Angular homework for Epicodus course', 3),
+    new Task('Begin crying', 2),
+    new Task('Add README to file', 2)
+  ];
+
+
   editTask(clickedTask) {
     this.selectedTask = clickedTask;
   }

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { Task } from '../models/task.model';
 
 @Component({
@@ -8,6 +8,13 @@ import { Task } from '../models/task.model';
 })
 
 export class TaskListComponent {
+  @Input() childTaskList: Task[];
+  @Output() clickSender = new EventEmitter();
+
+  editButtonClicked(taskToEdit: Task) {
+    this.clickSender.emit(taskToEdit);
+  }
+
   tasks: Task[] = [
     new Task('Finish weekend Angular homework for Epicodus course', 3),
     new Task('Begin brainstorming possible JavaScript group projects', 2),
