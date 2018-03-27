@@ -8,6 +8,11 @@ import { Task } from '../models/task.model';
 })
 export class EditTaskComponent {
   @Input() childSelectedTask: Task;
-}  
+  @Output() clickedDone = new EventEmitter();
+
+  finishedEditing() {
+    this.clickedDone.emit();
+  }
+}
   // ngOnInit() {
   // }
